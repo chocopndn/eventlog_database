@@ -37,7 +37,7 @@ CREATE TABLE Users (
     firstName VARCHAR(255) NOT NULL,
     middleName VARCHAR(255),
     suffix VARCHAR(10),
-    email VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
     password VARCHAR(255),
     role ENUM('Student', 'Officer') NOT NULL,
     FOREIGN KEY (department_ID) REFERENCES Department(department_ID),
@@ -49,10 +49,10 @@ CREATE TABLE Attendance (
     attendance_ID INT AUTO_INCREMENT PRIMARY KEY,
     event_ID INT NOT NULL,
     student_ID INT NOT NULL,
-    morning_TimeIn TIME,
-    morning_TimeOut TIME,
-    afternoon_TimeIn TIME,
-    afternoon_TimeOut TIME,
+    morning_TimeIn TIME NULL,
+    morning_TimeOut TIME NULL,
+    afternoon_TimeIn TIME NULL,
+    afternoon_TimeOut TIME NULL,
     FOREIGN KEY (event_ID) REFERENCES Event(event_ID),
     FOREIGN KEY (student_ID) REFERENCES Users(student_ID)
 );
@@ -64,7 +64,7 @@ CREATE TABLE Admins (
     firstName VARCHAR(255) NOT NULL,
     middleName VARCHAR(255),
     suffix VARCHAR(10),
-    email VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
     password VARCHAR(255), 
     role ENUM('Admin', 'Super Admin') NOT NULL,
     FOREIGN KEY (department_ID) REFERENCES Department(department_ID)
