@@ -69,3 +69,12 @@ CREATE TABLE Admins (
     role ENUM('Admin', 'Super Admin') NOT NULL,
     FOREIGN KEY (department_ID) REFERENCES Department(department_ID)
 );
+
+CREATE TABLE password_reset_codes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_ID INT NOT NULL,
+    reset_code CHAR(5) NOT NULL,
+    created_at DATETIME NOT NULL,
+    used BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (student_ID) REFERENCES Users(student_ID)
+);
