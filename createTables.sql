@@ -71,7 +71,7 @@ CREATE TABLE Admins (
 );
 
 CREATE TABLE password_reset_codes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    code_id INT AUTO_INCREMENT PRIMARY KEY,
     student_ID INT NOT NULL,
     reset_code CHAR(5) NOT NULL,
     created_at DATETIME NOT NULL,
