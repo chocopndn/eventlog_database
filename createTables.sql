@@ -72,9 +72,9 @@ CREATE TABLE Admins (
 
 CREATE TABLE password_reset_codes (
     code_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_ID INT NOT NULL,
+    email VARCHAR(255) NOT NULL,
     reset_code CHAR(5) NOT NULL,
     created_at DATETIME NOT NULL,
     used BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (student_ID) REFERENCES Users(student_ID)
+    FOREIGN KEY (email) REFERENCES Users(email)
 );
