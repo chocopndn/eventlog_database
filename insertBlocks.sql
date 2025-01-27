@@ -1,21 +1,21 @@
-INSERT INTO Block (blockName, yearlevel_ID) VALUES
--- 1st Year
-('BSIT CFP B-38', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
-('BSIT CFP B-39', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
-('BSIT CFP B-47', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
-('BSIT CFP B-48', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
-('BSIT CFP B-50', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
-('BSIT CFP B-51', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '1st Year')),
--- 2nd Year
-('BSIT 2A', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '2nd Year')),
-('BSIT 2A NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '2nd Year')),
-('BSIT 2B NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '2nd Year')),
-('BSIT 2C NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '2nd Year')),
--- 3rd Year
-('BSIT 3A', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '3rd Year')),
-('BSIT 3A NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '3rd Year')),
-('BSIT 3B NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '3rd Year')),
--- 4th Year
-('BSIT 4A', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '4th Year')),
-('BSIT 4A NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '4th Year')),
-('BSIT 4B NON', (SELECT yearlevel_ID FROM YearLevel WHERE yearLevel = '4th Year'));
+INSERT INTO block (block_name, yearlevel_id) VALUES
+    -- 1st Year 
+    ('CFP B-38', 1),
+    ('CFP B-39', 1),
+    ('CFP B-47', 1),
+    ('CFP B-48', 1),
+    ('CFP B-50', 1),
+    ('CFP B-51', 1),
+    -- 2nd Year 
+    ('2A', 2),
+    ('2A NON', 2),
+    ('2B NON', 2),
+    ('2C NON', 2),
+    -- 3rd Year 
+    ('3A', 3),
+    ('3A NON', 3),
+    ('3B NON', 3),
+    -- 4th Year 
+    ('4A', 4),
+    ('4A NON', 4),
+    ('4B NON', 4);

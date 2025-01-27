@@ -1,73 +1,84 @@
-CREATE TABLE Department (
-    department_ID INT AUTO_INCREMENT PRIMARY KEY,
-    departmentName VARCHAR(255) NOT NULL UNIQUE
+CREATE TABLE department (
+    department_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL UNIQUE
 );
 
-CREATE TABLE YearLevel (
-    yearlevel_ID INT AUTO_INCREMENT PRIMARY KEY,
-    yearLevel VARCHAR(50) NOT NULL UNIQUE
+CREATE TABLE year_level (
+    yearlevel_id INT AUTO_INCREMENT PRIMARY KEY,
+    year_level VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE Block (
-    block_ID INT AUTO_INCREMENT PRIMARY KEY,
-    blockName VARCHAR(255) NOT NULL UNIQUE,
-    yearlevel_ID INT NOT NULL,
-    FOREIGN KEY (yearlevel_ID) REFERENCES YearLevel(yearlevel_ID)
+CREATE TABLE block (
+    block_id INT AUTO_INCREMENT PRIMARY KEY,
+    block_name VARCHAR(255) NOT NULL UNIQUE,
+    yearlevel_id INT NOT NULL,
+    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id)
 );
 
-CREATE TABLE Event (
-    event_ID INT AUTO_INCREMENT PRIMARY KEY,
-    department_ID INT NOT NULL,
-    yearlevel_ID INT NOT NULL,
-    block_ID INT NOT NULL,
-    eventName VARCHAR(255) NOT NULL,
-    startTime DATETIME NOT NULL,
-    endTime DATETIME NOT NULL,
-    FOREIGN KEY (department_ID) REFERENCES Department(department_ID),
-    FOREIGN KEY (yearlevel_ID) REFERENCES YearLevel(yearlevel_ID),
-    FOREIGN KEY (block_ID) REFERENCES Block(block_ID)
+CREATE TABLE event_names (
+    event_name_id INT AUTO_INCREMENT PRIMARY KEY,
+    event_name VARCHAR(255) NOT NULL UNIQUE
 );
 
-CREATE TABLE Users (
-    student_ID INT PRIMARY KEY,
-    department_ID INT NOT NULL,
-    yearlevel_ID INT NOT NULL,
-    block_ID INT NOT NULL,
-    lastName VARCHAR(255) NOT NULL,
-    firstName VARCHAR(255) NOT NULL,
-    middleName VARCHAR(255),
+CREATE TABLE events (
+    event_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_id INT,
+    yearlevel_id INT,
+    block_id INT,
+    event_name_id INT NOT NULL,
+    venue VARCHAR(255) NOT NULL,
+    date_of_event DATE NOT NULL,
+    am_in TIME,
+    am_out TIME,
+    pm_in TIME,
+    pm_out TIME,
+    scan_personnel VARCHAR(255),
+    FOREIGN KEY (department_id) REFERENCES department(department_id),
+    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id),
+    FOREIGN KEY (block_id) REFERENCES block(block_id),
+    FOREIGN KEY (event_name_id) REFERENCES event_names(event_name_id)
+);
+
+CREATE TABLE users (
+    student_id INT PRIMARY KEY,
+    department_id INT NOT NULL,
+    yearlevel_id INT NOT NULL,
+    block_id INT NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
     suffix VARCHAR(10),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(255),
     role ENUM('Student', 'Officer') NOT NULL,
-    FOREIGN KEY (department_ID) REFERENCES Department(department_ID),
-    FOREIGN KEY (yearlevel_ID) REFERENCES YearLevel(yearlevel_ID),
-    FOREIGN KEY (block_ID) REFERENCES Block(block_ID)
+    FOREIGN KEY (department_id) REFERENCES department(department_id),
+    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id),
+    FOREIGN KEY (block_id) REFERENCES block(block_id)
 );
 
-CREATE TABLE Attendance (
-    attendance_ID INT AUTO_INCREMENT PRIMARY KEY,
-    event_ID INT NOT NULL,
-    student_ID INT NOT NULL,
-    morning_TimeIn TIME NULL,
-    morning_TimeOut TIME NULL,
-    afternoon_TimeIn TIME NULL,
-    afternoon_TimeOut TIME NULL,
-    FOREIGN KEY (event_ID) REFERENCES Event(event_ID),
-    FOREIGN KEY (student_ID) REFERENCES Users(student_ID)
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    student_id INT NOT NULL,
+    am_in TIME NULL,
+    am_out TIME NULL,
+    pm_in TIME NULL,
+    pm_out TIME NULL,
+    FOREIGN KEY (event_id) REFERENCES events(event_id),
+    FOREIGN KEY (student_id) REFERENCES users(student_id)
 );
 
-CREATE TABLE Admins (
-    admin_ID INT PRIMARY KEY,
-    department_ID INT NOT NULL,
-    lastName VARCHAR(255) NOT NULL,
-    firstName VARCHAR(255) NOT NULL,
-    middleName VARCHAR(255),
+CREATE TABLE admins (
+    admin_id INT PRIMARY KEY,
+    department_id INT NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
     suffix VARCHAR(10),
     email VARCHAR(255) UNIQUE,
-    password VARCHAR(255), 
+    password VARCHAR(255),
     role ENUM('Admin', 'Super Admin') NOT NULL,
-    FOREIGN KEY (department_ID) REFERENCES Department(department_ID)
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
 );
 
 CREATE TABLE password_reset_codes (
@@ -76,5 +87,5 @@ CREATE TABLE password_reset_codes (
     reset_code INT NOT NULL,
     created_at DATETIME NOT NULL,
     used BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (email) REFERENCES Users(email),
+    FOREIGN KEY (email) REFERENCES users(email)
 );
