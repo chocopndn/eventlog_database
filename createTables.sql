@@ -23,7 +23,6 @@ CREATE TABLE event_names (
 CREATE TABLE events (
     event_id INT AUTO_INCREMENT PRIMARY KEY,
     department_id INT,
-    yearlevel_id INT,
     block_id INT,
     event_name_id INT NOT NULL,
     venue VARCHAR(255) NOT NULL,
@@ -34,7 +33,6 @@ CREATE TABLE events (
     pm_out TIME,
     scan_personnel VARCHAR(255),
     FOREIGN KEY (department_id) REFERENCES department(department_id),
-    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id),
     FOREIGN KEY (block_id) REFERENCES block(block_id),
     FOREIGN KEY (event_name_id) REFERENCES event_names(event_name_id)
 );
