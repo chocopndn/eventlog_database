@@ -12,7 +12,9 @@ CREATE TABLE block (
     block_id INT AUTO_INCREMENT PRIMARY KEY,
     block_name VARCHAR(255) NOT NULL UNIQUE,
     yearlevel_id INT NOT NULL,
-    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id)
+    department_id INT NOT NULL,
+    FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id),
+    FOREIGN KEY (department_id) REFERENCES department(department_id)
 );
 
 CREATE TABLE event_names (
