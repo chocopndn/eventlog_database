@@ -50,7 +50,7 @@ CREATE TABLE users (
     suffix VARCHAR(10),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(255),
-    role ENUM('Student', 'Officer') NOT NULL,
+    role VARCHAR(10) DEFAULT 'Student',
     FOREIGN KEY (department_id) REFERENCES department(department_id),
     FOREIGN KEY (yearlevel_id) REFERENCES year_level(yearlevel_id),
     FOREIGN KEY (block_id) REFERENCES block(block_id)
