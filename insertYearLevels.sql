@@ -1,4 +1,4 @@
-INSERT INTO year_level (year_level) VALUES
+INSERT INTO year_levels (name) VALUES
     ('1st Year'),
     ('2nd Year'),
     ('3rd Year'),

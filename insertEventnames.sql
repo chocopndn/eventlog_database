@@ -1,6 +1,6 @@
-INSERT INTO event_names (event_name)
+INSERT INTO event_names (name)
 VALUES 
-    ('UCV@76th Foundation Week'),
+    ('UCV 76th Foundation Week'),
     ('IT Day'),
     ('Programming Bootcamp'),
     ('Database Management Workshop'),

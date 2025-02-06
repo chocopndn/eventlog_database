@@ -1,4 +1,4 @@
-INSERT INTO department (department_name) VALUES
+INSERT INTO departments (name) VALUES
     ('College of Information Technology'),
     ('College of Maritime Education'),
     ('School of Business Administration and Governance'),
