@@ -1,0 +1,14 @@
+
+USE eventlog;
+DROP TABLE IF EXISTS password_reset_codes;
+DROP TABLE IF EXISTS attendance;
+DROP TABLE IF EXISTS event_blocks;
+DROP TABLE IF EXISTS event_dates;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS event_names;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS admins;
+DROP TABLE IF EXISTS blocks;
+DROP TABLE IF EXISTS year_levels;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS roles;
