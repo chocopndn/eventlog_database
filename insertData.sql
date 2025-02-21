@@ -24,7 +24,38 @@ INSERT INTO year_levels (name) VALUES
     ('3rd Year'),
     ('4th Year');
 
-INSERT INTO blocks (name, year_level_id, department_id) VALUES
+INSERT INTO courses (name, department_id) VALUES
+    ('BSIT', 1),
+    ('AB PolSci', 7),
+    ('BEEd Pre-School', 7),
+    ('BSEd English', 7),
+    ('BSEd Filipino', 7),
+    ('BSEd SocStud', 7),
+    ('BSEd Math', 7),
+    ('BPEd', 7),
+    ('BSPA', 7),
+    ('BSSW', 7),
+    ('BSBA FinMan', 3),
+    ('BSBA HRM', 3),
+    ('BSBA MktgMan', 3),
+    ('BSHRM', 8),
+    ('BSCrim', 4),
+    ('BSCrim ETEEAP', 4),
+    ('BSEE', 5),
+    ('BSME', 5),
+    ('BSCpE', 5),
+    ('BSET', 6),
+    ('BSElTech', 6),
+    ('BSIndTech Auto', 6),
+    ('AutoServ NCII', 6),
+    ('BSN', 9),
+    ('BSM', 9),
+    ('DipMid', 9),
+    ('BSMarE', 2),
+    ('BSMT', 2);
+
+
+INSERT INTO blocks (name, year_level_id, course_id) VALUES
     ('CFP B-38', 1, 1),
     ('CFP B-39', 1, 1),
     ('CFP B-47', 1, 1),

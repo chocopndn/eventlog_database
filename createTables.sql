@@ -13,12 +13,19 @@ CREATE TABLE year_levels (
     name VARCHAR(50) NOT NULL UNIQUE 
 );
 
+CREATE TABLE courses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    department_id INT NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE CASCADE
+);
+
 CREATE TABLE blocks (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL UNIQUE,  
-    department_id INT NOT NULL, 
+    course_id INT NOT NULL, 
     year_level_id INT NOT NULL, 
-    FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
     FOREIGN KEY (year_level_id) REFERENCES year_levels(id) ON DELETE CASCADE
 );
 
