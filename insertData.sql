@@ -4,19 +4,23 @@ VALUES ('Student'),
     ('Officer'),
     ('Admin'),
     ('Super Admin');
-INSERT INTO departments (name)
-VALUES ('College of Information Technology'),
-    ('College of Maritime Education'),
+INSERT INTO departments (name, code)
+VALUES ('College of Information Technology', 'CIT'),
+    ('College of Maritime Education', 'CME'),
     (
-        'School of Business Administration and Governance'
+        'School of Business Administration and Governance',
+        'SBAG'
     ),
-    ('College of Criminal Justice Education'),
-    ('College of Engineering'),
-    ('College of Technology'),
-    ('School of Liberal Arts & Teacher Education'),
-    ('College of Hospitality Management'),
-    ('College of Health'),
-    ('College of Law');
+    ('College of Criminal Justice Education', 'CCJE'),
+    ('College of Engineering', 'COE'),
+    ('College of Technology', 'COT'),
+    (
+        'School of Liberal Arts & Teacher Education',
+        'SLATE'
+    ),
+    ('College of Hospitality Management', 'CHM'),
+    ('College of Health', 'COH'),
+    ('College of Law', 'COL');
 INSERT INTO year_levels (name)
 VALUES ('1st Year'),
     ('2nd Year'),
@@ -52,8 +56,7 @@ VALUES ('BSIT', 1),
     ('BSMarE', 2),
     ('BSMT', 2);
 INSERT INTO blocks (name, year_level_id, course_id, department_id)
-VALUES
-    ('CFP B-38', 1, 1, 1),
+VALUES ('CFP B-38', 1, 1, 1),
     ('CFP B-39', 1, 1, 1),
     ('CFP B-47', 1, 1, 1),
     ('CFP B-48', 1, 1, 1),
@@ -579,7 +582,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         1,
@@ -588,7 +591,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         2,
@@ -597,7 +600,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         3,
@@ -606,7 +609,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         4,
@@ -615,7 +618,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         5,
@@ -624,7 +627,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         6,
@@ -633,7 +636,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         6,
@@ -642,7 +645,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         7,
@@ -651,7 +654,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         8,
@@ -660,7 +663,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         9,
@@ -669,7 +672,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         10,
@@ -678,7 +681,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     ),
     (
         10,
@@ -687,7 +690,7 @@ VALUES (
         '11:00:00',
         '13:00:00',
         '17:00:00',
-        '2 hours'
+        '30'
     );
 INSERT INTO event_blocks (event_id, block_id)
 VALUES (1, 12),
